@@ -70,6 +70,18 @@ a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
   transform: scaleX(0);
   transition: transform 180ms ease;
 }
+
+.about-history {
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+}
+
+.about-history p {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
 .site-nav a:hover::after,
 .site-nav a:focus-visible::after,
 .site-nav a.active::after { transform: scaleX(1); }
