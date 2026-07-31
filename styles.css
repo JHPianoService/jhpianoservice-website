@@ -32,7 +32,7 @@ a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
 }
 
 .heritage-feature {
-  padding: 0 max(24px, calc((100vw - 1200px) / 2)) 118px;
+  padding: 80px max(24px, calc((100vw - 1200px) / 2)) 0;
 }
 
 .heritage-feature img {
