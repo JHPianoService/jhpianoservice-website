@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Piano services within approximately 75 driving miles of Biloxi, Mississippi and New Iberia, Louisiana.">
+  <title>Service Areas | Jerry Hebert Piano Services</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Jerry Hebert Piano Services home">
+      <span class="brand-mark" aria-hidden="true">JH</span>
+      <span class="brand-copy"><strong>Jerry Hebert</strong><span>Piano Services</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a class="active" href="service-areas.html" aria-current="page">Service Areas</a>
+      <a href="about.html">About</a>
+    </nav>
+    <a class="header-cta" href="index.html#contact">Request service <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="interior-hero service-areas-hero">
+      <p class="eyebrow">Service Areas</p>
+      <h1>Care that travels to your piano.</h1>
+      <p>Based from two Gulf South hubs, Jerry provides on-site piano and instrument services within approximately 75 driving miles each way.</p>
+    </section>
+
+    <section class="section coverage-section" aria-labelledby="coverage-title">
+      <div class="coverage-intro">
+        <div><p class="eyebrow">Two regional hubs</p><h2 id="coverage-title">Biloxi and New Iberia.</h2></div>
+        <div class="coverage-summary"><strong>75 miles</strong><span>maximum one-way driving distance from either hub</span></div>
+      </div>
+
+      <div class="map-shell">
+        <div id="service-area-map" class="service-area-map" role="region" aria-label="Interactive map showing the Biloxi and New Iberia service hubs"></div>
+        <div class="map-legend" aria-label="Map legend">
+          <span><i class="hub-symbol"></i> Service hub</span>
+          <span><i class="range-symbol"></i> Approximate 75-mile reach</span>
+        </div>
+      </div>
+      <p class="map-note">Map circles show an approximate geographic reach. Actual eligibility is based on driving distance and route availability.</p>
+    </section>
+
+    <section class="hub-section" aria-labelledby="hub-title">
+      <div class="hub-heading">
+        <div><p class="eyebrow">Where Jerry travels</p><h2 id="hub-title">Serving the Gulf Coast and Acadiana.</h2></div>
+        <p>If your community is near the edge of the service area, reach out with your address before scheduling so the route can be confirmed.</p>
+      </div>
+
+      <div class="hub-grid">
+        <article class="hub-card">
+          <span>01</span>
+          <div><h3>Biloxi</h3><p class="hub-region">Mississippi Gulf Coast</p><p>Including Gulfport, Ocean Springs, Pascagoula, Bay St. Louis, Wiggins, and surrounding communities within the travel range.</p></div>
+        </article>
+        <article class="hub-card">
+          <span>02</span>
+          <div><h3>New Iberia</h3><p class="hub-region">Acadiana, Louisiana</p><p>Including Lafayette, Broussard, St. Martinville, Abbeville, Opelousas, Morgan City, and surrounding communities within the travel range.</p></div>
+        </article>
+      </div>
+
+      <div class="travel-note">
+        <strong>Outside the listed range?</strong>
+        <p>Longer trips may be considered for specialized or larger projects. Contact Jerry to discuss the instrument, location, and scope of work.</p>
+      </div>
+    </section>
+
+    <section class="contact-section" aria-labelledby="contact-title">
+      <div><p class="eyebrow">Ready when you are</p><h2 id="contact-title">Let’s get your piano sounding its best.</h2></div>
+      <div class="contact-copy">
+        <p>Reach out to confirm that your address is within the service area or to discuss a larger project.</p>
+        <div class="contact-placeholders"><span>Add Jerry’s phone number</span><span>Add Jerry’s email address</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">JH</span>
+      <span class="brand-copy"><strong>Jerry Hebert</strong><span>Piano Services</span></span>
+    </a>
+    <p>Professional piano tuning, repair, and care.</p>
+    <a href="index.html">Return home →</a>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var mapElement = document.getElementById("service-area-map");
+      if (!mapElement || typeof L === "undefined") {
+        if (mapElement) mapElement.textContent = "The interactive map could not load. Service hubs are Biloxi, Mississippi and New Iberia, Louisiana.";
+        return;
+      }
+
+      var map = L.map(mapElement, { scrollWheelZoom: false });
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 18,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+
+      var hubs = [
+        { name: "Biloxi, Mississippi", location: [30.396, -88.8853] },
+        { name: "New Iberia, Louisiana", location: [30.0035, -91.8187] }
+      ];
+
+      hubs.forEach(function (hub) {
+        L.circle(hub.location, {
+          radius: 120701,
+          color: "#244b3d",
+          weight: 2,
+          fillColor: "#c99b4a",
+          fillOpacity: 0.16
+        }).addTo(map);
+
+        L.circleMarker(hub.location, {
+          radius: 8,
+          color: "#ffffff",
+          weight: 3,
+          fillColor: "#244b3d",
+          fillOpacity: 1
+        }).addTo(map).bindPopup("<strong>" + hub.name + "</strong><br>Primary service hub");
+      });
+
+      map.fitBounds([[28.85, -93.25], [31.55, -87.55]], { padding: [24, 24] });
+    });
+  </script>
+</body>
+</html>
