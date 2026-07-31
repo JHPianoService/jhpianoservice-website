@@ -30,6 +30,16 @@ a:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
   align-items: center;
   border-bottom: 1px solid var(--line);
 }
+
+.heritage-feature {
+  padding: 0 max(24px, calc((100vw - 1200px) / 2)) 118px;
+}
+
+.heritage-feature img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 .brand { display: inline-flex; align-items: center; gap: 12px; width: max-content; }
 .brand-mark {
   width: 42px;
